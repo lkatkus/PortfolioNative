@@ -1,6 +1,6 @@
 const getEventConfig =
-  ({ app }: any) =>
-  (game: any) => {
+  ({ app, game }: any) =>
+  (gameObjects: any) => {
     return [
       {
         id: 'initialEvent',
@@ -134,11 +134,84 @@ const getEventConfig =
         onLeave: app.clearEvent,
       },
       // @TODO add missing events
+      {
+        id: 'monolith',
+        row: [5, 6],
+        col: [10, 13],
+        eventHandler: (playerRef: any) => {
+          if (playerRef.canFly) {
+            app.setEvent({
+              text: '01010100 01101000 01100001 01101110 01101011 00100000 01111001 01101111 01110101 00100000 01100110 01101111 01110010 00100000 01110110 01101001 01110011 01101001 01110100 01101001 01101110 01100111 00100000 01101101 01111001 00100000 01110111 01100101 01100010 01110011 01101001 01110100 01100101 00100001',
+              image: 'roboImage',
+              onClick: {
+                text: 'Huh?',
+                clickHandler: () => app.openTab('contacts'),
+              },
+            });
+          } else {
+            app.setEvent({
+              text: 'That thing looks interesting...? It seems to be REACTing to something.',
+              image: 'playerImage',
+              onClick: {
+                text: 'Touch the strange thing',
+                clickHandler: () => {
+                  game.levelUp(gameObjects);
+                  game.disableControls(gameObjects);
+
+                  app.setEvent({
+                    text: 'What is this new power, that i feel?! Virtual DOM, Hooks, Redux, GraphQL, Node!',
+                    image: 'roboImage',
+                    onClick: {
+                      text: 'Try out this new power!',
+                      clickHandler: () => {
+                        game.enableControls(gameObjects);
+
+                        app.clearEvent();
+                      },
+                    },
+                  });
+                },
+              },
+            });
+          }
+        },
+        onLeave: app.clearEvent,
+      },
     ];
   };
 
-export const getConfig = ({ openTab, openPage, setEvent }: any) => {
+export const getConfig = (
+  { openTab, openPage, setEvent }: any,
+  { playerLeveledTexture }: any
+) => {
   return getEventConfig({
+    game: {
+      levelUp: ({ player }: any) => {
+        player.levelUp(
+          {
+            url: playerLeveledTexture,
+            config: {
+              height: 64,
+              width: 32,
+              tileCols: 3,
+              drawHeightOffset: 2,
+              drawWidthOffset: 2,
+            },
+          },
+          {
+            tileCols: 3,
+            canFly: true,
+            speedXOffset: 0.1,
+            speedYOffset: 0.1,
+            speedX: Math.floor(player.level.TILE_SIZE / 0.1),
+            speedY: Math.floor(player.level.TILE_SIZE / 0.1),
+          }
+        );
+      },
+      // @TODO add control handling
+      disableControls: () => {},
+      enableControls: () => {},
+    },
     app: { openTab, openPage, setEvent, clearEvent: () => setEvent(null) },
   });
 };

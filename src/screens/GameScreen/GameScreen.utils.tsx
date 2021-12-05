@@ -23,6 +23,9 @@ export const initLaikaGame = async (
   const playerTextureAsset = await loadAsset(
     require('./assets/player-spritesheet.png')
   );
+  const playerTextureLeveledAsset = await loadAsset(
+    require('./assets/playerspritesheet-leveled.png')
+  );
   const catTextureAsset = await loadAsset(
     require('./assets/cat-spritesheet.png')
   );
@@ -30,11 +33,16 @@ export const initLaikaGame = async (
   new LaikaGame(
     {
       initRenderer: () => new WebGlRenderer(gl),
-      events: getEventsConfig({
-        openTab: handleOpenTab,
-        openPage: handleOpenPage,
-        setEvent: handleSetEvent,
-      }),
+      events: getEventsConfig(
+        {
+          openTab: handleOpenTab,
+          openPage: handleOpenPage,
+          setEvent: handleSetEvent,
+        },
+        {
+          playerLeveledTexture: playerTextureLeveledAsset,
+        }
+      ),
       player: getPlayerConfig(playerTextureAsset),
       npc: getNpcConfig(catTextureAsset),
       level: getLevelConfig(levelTextureAsset),
