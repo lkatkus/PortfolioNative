@@ -8,8 +8,9 @@ import { initLaikaGame } from './GameScreen.utils';
 
 const MIN_DISPLAY_LOADING = 500;
 
-const GameScreen: React.FC<any> = ({ navigation }) => {
+const GameScreen: React.FC<any> = ({ route, navigation }) => {
   const fadeAnim = React.useRef(new Animated.Value(1)).current;
+  const { gameMenuScreenName, menuOptionScreenName } = route.params;
 
   const [gl, setGl] = React.useState<any>(null);
   const [game, setGame] = React.useState<any>(null);
@@ -40,7 +41,7 @@ const GameScreen: React.FC<any> = ({ navigation }) => {
           }, MIN_DISPLAY_LOADING);
         },
         handleOpenTab: (tab: any) => {
-          navigation.navigate('MenuOptionScreen', { type: tab });
+          navigation.navigate(menuOptionScreenName, { type: tab });
         },
         handleOpenPage: (pageUrl: any) => {
           alert(pageUrl);
@@ -131,7 +132,7 @@ const GameScreen: React.FC<any> = ({ navigation }) => {
         {/* @TODO move to separate component FloatingButton? */}
         <View style={{ zIndex: 10, position: 'absolute', top: 0, left: 0 }}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('GameMenuScreen')}
+            onPress={() => navigation.navigate(gameMenuScreenName)}
             style={{ padding: 10 }}
           >
             <Ionicons name='ios-menu' size={24} color='white' />

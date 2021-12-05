@@ -28,6 +28,10 @@ const AppNavigator: React.FC<any> = () => {
           options={{
             headerShown: false,
           }}
+          initialParams={{
+            gameMenuScreenName: GameMenuScreen.name,
+            menuOptionScreenName: MenuOptionScreen.name,
+          }}
         />
 
         <Stack.Group screenOptions={{ presentation: 'transparentModal' }}>
@@ -47,6 +51,9 @@ const AppNavigator: React.FC<any> = () => {
             component={GameMenuScreen}
             options={{
               headerShown: false,
+            }}
+            initialParams={{
+              menuOptionScreenName: MenuOptionScreen.name,
             }}
           />
           <Stack.Screen
