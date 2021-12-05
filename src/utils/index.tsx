@@ -1,0 +1,1 @@
+export { loadAsset } from './LoadAssets';
