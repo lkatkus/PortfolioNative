@@ -4,7 +4,7 @@ const getEventConfig =
     return [
       {
         id: 'initialEvent',
-        row: [41, 41],
+        row: [40, 41],
         col: [5, 9],
         eventHandler: (playerRef: any) => {
           app.setEvent({
@@ -16,7 +16,7 @@ const getEventConfig =
       },
       {
         id: 'makeArchitectsGreatAgain',
-        row: [41, 41],
+        row: [40, 41],
         col: [14, 27],
         eventHandler: (playerRef: any) =>
           app.setEvent({
@@ -33,7 +33,7 @@ const getEventConfig =
       },
       {
         id: 'moveUp',
-        row: [41, 41],
+        row: [40, 41],
         col: [35, 39],
         eventHandler: () =>
           app.setEvent({
@@ -44,7 +44,7 @@ const getEventConfig =
       },
       {
         id: 'webPortfolio',
-        row: [35, 35],
+        row: [34, 35],
         col: [35, 38],
         eventHandler: (playerRef: any) =>
           app.setEvent({
@@ -59,7 +59,7 @@ const getEventConfig =
       },
       {
         id: 'gitRedirect',
-        row: [35, 35],
+        row: [34, 35],
         col: [40, 45],
         eventHandler: (playerRef: any) =>
           app.setEvent({
@@ -74,7 +74,7 @@ const getEventConfig =
       },
       {
         id: 'miscPortfolio',
-        row: [35, 35],
+        row: [34, 35],
         col: [47, 50],
         eventHandler: (playerRef: any) =>
           app.setEvent({
@@ -89,14 +89,14 @@ const getEventConfig =
       },
       {
         id: 'catSpeak',
-        row: [33, 33],
+        row: [32, 33],
         col: [13, 24],
         eventHandler: () => app.setEvent({ text: 'Meow!', image: 'catImage' }),
         onLeave: app.clearEvent,
       },
       {
         id: 'randomJoke',
-        row: [24, 24],
+        row: [23, 24],
         col: [25, 45],
         eventHandler: (playerRef: any) =>
           app.setEvent({
@@ -123,9 +123,9 @@ const getEventConfig =
         onLeave: app.clearEvent,
       },
       {
-        id: 'randomJoke',
-        row: [19, 19],
-        col: [19, 23],
+        id: 'seeHome',
+        row: [18, 19],
+        col: [19, 25],
         eventHandler: (playerRef: any) =>
           app.setEvent({
             text: 'I can see my house, from here!',
@@ -189,22 +189,22 @@ export const getConfig = (
       levelUp: ({ player }: any) => {
         player.levelUp(
           {
-            url: playerLeveledTexture,
-            config: {
-              height: 64,
-              width: 32,
-              tileCols: 3,
-              drawHeightOffset: 2,
-              drawWidthOffset: 2,
-            },
+            source: playerLeveledTexture,
+            height: playerLeveledTexture.height / 4,
+            width: playerLeveledTexture.width / 4,
+            tileCols: 3,
+            drawHeightOffset: 2,
+            drawWidthOffset: 1,
           },
           {
             tileCols: 3,
             canFly: true,
-            speedXOffset: 0.1,
-            speedYOffset: 0.1,
-            speedX: Math.floor(player.level.TILE_SIZE / 0.1),
-            speedY: Math.floor(player.level.TILE_SIZE / 0.1),
+            speedXOffset: 0.12,
+            speedYOffset: 0.12,
+            speedX: Math.floor(player.level.TILE_SIZE / 0.12),
+            speedY: Math.floor(player.level.TILE_SIZE / 0.12),
+            textureWidth: playerLeveledTexture.height,
+            textureHeight: playerLeveledTexture.width,
           }
         );
       },
