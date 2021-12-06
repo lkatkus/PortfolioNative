@@ -1,21 +1,70 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+
+import { Text, SkillzBox } from '../../../components';
 
 const About: React.FC<any> = () => (
   <View>
-    <Text>ABOUT</Text>
-    <Text>
-      Filet mignon pork chop leberkas, ham swine chicken chislic cupim brisket
-      burgdoggen jowl. Chicken spare ribs pork loin chislic ball tip fatback
-      shoulder tongue chuck boudin pork filet mignon biltong. Pastrami short
-      loin bresaola alcatra ground round chicken salami tenderloin spare ribs
-      ball tip pork chop. Biltong jerky pastrami landjaeger pancetta ham, flank
-      kielbasa t-bone meatloaf frankfurter rump drumstick. Shank andouille short
-      ribs filet mignon, kielbasa fatback shoulder pork chop meatball ball tip.
-      Landjaeger frankfurter bacon, burgdoggen capicola ham short loin boudin
-      tongue andouille buffalo.
-    </Text>
+    <View style={styles.sectionContainer}>
+      <Text.Heading2>Laimonas Katkus</Text.Heading2>
+      <Text.Body>Race - Human</Text.Body>
+      <Text.Body>Class - Software developer</Text.Body>
+      <Text.Body>Location - Lithuania, Vilnius</Text.Body>
+      <Text.Body>Superpower - Brazilian Jiu-Jitsu blue belt</Text.Body>
+    </View>
+
+    <View style={styles.sectionContainer}>
+      <Text.Heading2>Stats</Text.Heading2>
+      <View>
+        <View>
+          <Text.Body>HP</Text.Body>
+        </View>
+        <View>
+          <SkillzBox color='crimson' />
+        </View>
+      </View>
+
+      <View>
+        <View>
+          <Text.Body>MP</Text.Body>
+        </View>
+        <View>
+          <SkillzBox color='navy' />
+        </View>
+      </View>
+
+      <View>
+        <View>
+          <Text.Body>EXP</Text.Body>
+        </View>
+        <View>
+          <SkillzBox color='gold' />
+        </View>
+      </View>
+    </View>
+
+    <View>
+      <Text.Heading2>Origins</Text.Heading2>
+      <Text.Body>
+        Architect (building kind) and project manager by education. I have
+        worked on multiple real estate projects of many different scales in many
+        different roles - from architect to project manager on both contractors
+        and clients side.
+      </Text.Body>
+      <Text.Body>
+        Even though, IT and tech stuff in general was in my life from early age,
+        the decision to move to IT, was not an easy one. Right now I am glad,
+        that I have followed my gut.
+      </Text.Body>
+      <Text.Body>To be continued...</Text.Body>
+    </View>
   </View>
 );
+
+const styles = StyleSheet.create({
+  sectionContainer: {
+    marginBottom: 16,
+  },
+});
 
 export default About;

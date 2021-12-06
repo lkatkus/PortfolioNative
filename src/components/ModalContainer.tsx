@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, ScrollView, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const ModalContainer: React.FC<any> = ({ children, handleCloseModal }) => (
@@ -28,7 +28,7 @@ const ModalContainer: React.FC<any> = ({ children, handleCloseModal }) => (
           </TouchableOpacity>
         </View>
       )}
-      <View>{children}</View>
+      <ScrollView>{children}</ScrollView>
     </View>
   </View>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Button, Text } from 'react-native';
+import { View, Button } from 'react-native';
 
-import { ModalContainer } from '../../components';
+import { ModalContainer, Text } from '../../components';
 
 const MainMenuScreen: React.FC<any> = ({ route, navigation }) => {
   const { gameScreenName, menuOptionScreenName } = route.params;
@@ -9,7 +9,7 @@ const MainMenuScreen: React.FC<any> = ({ route, navigation }) => {
   return (
     <View style={{ backgroundColor: 'blue', flex: 1 }}>
       <ModalContainer>
-        <Text>MY SUPER JAVASCRIPT ADVENTURE</Text>
+        <Text.Heading1>My Super JavaScript Adventure</Text.Heading1>
         <View>
           <Button
             onPress={() => navigation.navigate(gameScreenName)}
