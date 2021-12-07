@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-interface TextProps {
+interface BaseProps {
   fontFamily?: string;
   fontSize?: number;
   fontWeight?: number;
@@ -11,8 +11,12 @@ interface TextProps {
   textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
 }
 
+interface TextProps {
+  color?: string;
+}
+
 export default (
-  baseProps: TextProps
+  baseProps: BaseProps
 ): React.FC<TextProps & { children: string }> => {
   const styles = StyleSheet.create({
     textStyle: {
@@ -23,7 +27,7 @@ export default (
     },
   });
 
-  return ({ children }) => {
-    return <Text style={styles.textStyle}>{children}</Text>;
+  return ({ children, color }) => {
+    return <Text style={[styles.textStyle, { color: color }]}>{children}</Text>;
   };
 };

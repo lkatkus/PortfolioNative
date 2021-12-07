@@ -1,28 +1,26 @@
 import React from 'react';
-import { View, ScrollView, TouchableOpacity } from 'react-native';
+import { View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const ModalContainer: React.FC<any> = ({ children, handleCloseModal }) => (
+interface ModalContainerProps {
+  withBackground?: boolean;
+  handleCloseModal?: () => void;
+}
+
+const ModalContainer: React.FC<ModalContainerProps> = ({
+  children,
+  handleCloseModal,
+  withBackground = true,
+}) => (
   <View
-    style={{
-      flex: 1,
-      padding: 20,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: 'rgba(255,255,255,0.4)',
-    }}
+    style={[
+      styles.modalContainer,
+      { backgroundColor: withBackground ? 'rgba(255,255,255,0.4)' : undefined },
+    ]}
   >
-    <View
-      style={{
-        width: '100%',
-        padding: 10,
-        borderWidth: 2,
-        borderColor: 'black',
-        backgroundColor: 'white',
-      }}
-    >
+    <View style={styles.modal}>
       {handleCloseModal && (
-        <View style={{ alignItems: 'flex-end' }}>
+        <View style={styles.closeButtonContainer}>
           <TouchableOpacity onPress={handleCloseModal}>
             <Ionicons name='ios-close' size={24} color='black' />
           </TouchableOpacity>
@@ -32,5 +30,25 @@ const ModalContainer: React.FC<any> = ({ children, handleCloseModal }) => (
     </View>
   </View>
 );
+
+const styles = StyleSheet.create({
+  modalContainer: {
+    flex: 1,
+    padding: 32,
+    alignItems: 'stretch',
+    justifyContent: 'center',
+  },
+  modal: {
+    maxHeight: '100%',
+    padding: 16,
+    borderWidth: 1,
+    borderColor: 'black',
+    backgroundColor: 'white',
+    elevation: 10,
+  },
+  closeButtonContainer: {
+    alignItems: 'flex-end',
+  },
+});
 
 export default ModalContainer;

@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Button } from 'react-native';
 
-import { ModalContainer, Text } from '../../components';
+import { ScreenWrapper, ModalContainer, Text } from '../../components';
 
 const MainMenuScreen: React.FC<any> = ({ route, navigation }) => {
   const { gameScreenName, menuOptionScreenName } = route.params;
 
   return (
-    <View style={{ backgroundColor: 'blue', flex: 1 }}>
-      <ModalContainer>
+    <ScreenWrapper>
+      <ModalContainer withBackground={false}>
         <Text.Heading1>My Super JavaScript Adventure</Text.Heading1>
         <View>
           <Button
@@ -23,7 +23,7 @@ const MainMenuScreen: React.FC<any> = ({ route, navigation }) => {
           />
         </View>
       </ModalContainer>
-    </View>
+    </ScreenWrapper>
   );
 };
 

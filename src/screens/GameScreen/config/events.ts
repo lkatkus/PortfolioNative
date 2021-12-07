@@ -51,7 +51,7 @@ const getEventConfig =
             text: 'Hmmm... Not too bad! I think that I should come back later.',
             image: playerRef?.canFly ? 'roboImage' : 'playerImage',
             onClick: {
-              text: 'Portfolio',
+              text: 'Skills',
               clickHandler: () => app.openTab('skills'),
             },
           }),
