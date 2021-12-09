@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 
-import { Text } from '../../../../components';
+import { Text } from '../../../../core';
 
 const IMAGES = [
   require('./images/arch-1.jpg'),

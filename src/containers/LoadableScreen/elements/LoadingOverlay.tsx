@@ -1,7 +1,7 @@
 import React from 'react';
 import { Animated, StyleSheet } from 'react-native';
 
-import { Text } from '../../../components';
+import { Text } from '../../../core';
 
 const LoadingOverlay: React.FC<any> = ({ fadeAnimation }) => (
   <Animated.View

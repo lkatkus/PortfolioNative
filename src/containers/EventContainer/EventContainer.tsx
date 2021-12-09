@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
-import { Text } from '../../components';
+import { Text } from '../../core';
+import { Button } from '../../components';
 
 interface EventContainerProps {
   event: any;
@@ -16,6 +17,7 @@ const EventContainer: React.FC<EventContainerProps> = ({ event }) => {
       {event.onClick && (
         <View style={styles.buttonContainer}>
           <Button
+            variant='secondary'
             title={event.onClick.text}
             onPress={event.onClick.clickHandler}
           />
@@ -37,7 +39,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     width: '100%',
-    backgroundColor: 'rgba(0,0,0,0.65)',
+    backgroundColor: 'rgba(0,0,0,0.7)',
     borderColor: 'white',
     borderWidth: 2,
     padding: 16,

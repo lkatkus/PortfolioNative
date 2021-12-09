@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-import { Text, SkillzBox } from '../../../components';
+import { SkillzBox } from '../../../../components';
+import { Text } from '../../../../core';
 
 const SKILLZ_LIST = ['ReactJS', 'HTML', 'JS', 'Skiing', 'NodeJS', 'GraphQL'];
 
@@ -16,9 +17,9 @@ const Skills: React.FC<any> = () => (
       </Text.Body>
       <Text.Body>
         In general, I am interested in all thing JavaScript: VanillaJS,
-        TypeScript, React, React Native, Node, WebGL and graphics stuff. Right now I am focused on
-        developing web apps with React, but also trying out mobile development
-        with React Native on my free time.
+        TypeScript, React, React Native, Node, WebGL and graphics stuff. Right
+        now I am focused on developing web apps with React, but also trying out
+        mobile development with React Native on my free time.
       </Text.Body>
     </View>
 
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
   },
   subSectionContainer: {
     marginBottom: 8,
-  }
+  },
 });
 
 export default Skills;

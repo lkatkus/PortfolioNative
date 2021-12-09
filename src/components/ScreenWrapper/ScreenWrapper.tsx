@@ -8,6 +8,7 @@ const ScreenWrapper: React.FC<any> = ({ children }) => {
 const styles = StyleSheet.create({
   pageWrapper: {
     flex: 1,
+    justifyContent: 'center',
     backgroundColor: 'rgb(100, 150, 255)',
   },
 });

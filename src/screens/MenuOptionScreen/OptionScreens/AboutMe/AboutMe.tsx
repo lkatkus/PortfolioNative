@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-import { Text, SkillzBox } from '../../../components';
+import { SkillzBox } from '../../../../components';
+import { Text } from '../../../../core';
 
 const AboutMe: React.FC<any> = () => (
   <View>
@@ -16,30 +17,15 @@ const AboutMe: React.FC<any> = () => (
     <View style={styles.sectionContainer}>
       <Text.Heading2>Stats</Text.Heading2>
       <View>
-        <View>
-          <Text.Body>HP</Text.Body>
-        </View>
-        <View>
-          <SkillzBox color='crimson' />
-        </View>
+        <SkillzBox label={'HP'} labelComponent={Text.Body} color='crimson' />
       </View>
 
       <View>
-        <View>
-          <Text.Body>MP</Text.Body>
-        </View>
-        <View>
-          <SkillzBox color='navy' />
-        </View>
+        <SkillzBox label={'MP'} labelComponent={Text.Body} color='navy' />
       </View>
 
       <View>
-        <View>
-          <Text.Body>EXP</Text.Body>
-        </View>
-        <View>
-          <SkillzBox color='gold' />
-        </View>
+        <SkillzBox label={'EXP'} labelComponent={Text.Body} color='gold' />
       </View>
     </View>
 

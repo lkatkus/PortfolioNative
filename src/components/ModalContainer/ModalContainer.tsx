@@ -3,6 +3,7 @@ import { View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 interface ModalContainerProps {
+  isFullScreen?: boolean;
   withBackground?: boolean;
   handleCloseModal?: () => void;
 }
@@ -10,12 +11,16 @@ interface ModalContainerProps {
 const ModalContainer: React.FC<ModalContainerProps> = ({
   children,
   handleCloseModal,
+  isFullScreen = true,
   withBackground = true,
 }) => (
   <View
     style={[
       styles.modalContainer,
-      { backgroundColor: withBackground ? 'rgba(255,255,255,0.4)' : undefined },
+      {
+        flex: isFullScreen ? 1 : undefined,
+        backgroundColor: withBackground ? 'rgba(255,255,255,0.4)' : undefined,
+      },
     ]}
   >
     <View style={styles.modal}>
@@ -33,8 +38,7 @@ const ModalContainer: React.FC<ModalContainerProps> = ({
 
 const styles = StyleSheet.create({
   modalContainer: {
-    flex: 1,
-    padding: 32,
+    padding: 24,
     alignItems: 'stretch',
     justifyContent: 'center',
   },

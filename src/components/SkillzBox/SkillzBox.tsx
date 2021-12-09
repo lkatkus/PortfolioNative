@@ -18,7 +18,7 @@ const SkillzBox: React.FC<SkillzBoxProps> = ({
   return (
     <View style={styles.barBontainer}>
       {label && LabelComponent && (
-        <View style={{ flex: 0.5 }}>
+        <View style={{ flex: 0.4 }}>
           <LabelComponent>{label}</LabelComponent>
         </View>
       )}

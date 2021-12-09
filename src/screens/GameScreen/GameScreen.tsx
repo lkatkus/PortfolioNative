@@ -4,8 +4,11 @@ import { GLView } from 'expo-gl';
 import * as Linking from 'expo-linking';
 import { Ionicons } from '@expo/vector-icons';
 
-import { LoadableScreen, EventContainer } from '../../containers';
-import { ControlsHandler } from '../../components';
+import {
+  LoadableScreen,
+  EventContainer,
+  ControlsProvider,
+} from '../../containers';
 import { initLaikaGame } from './GameScreen.utils';
 
 const GameScreen: React.FC<any> = ({ route, navigation }) => {
@@ -63,12 +66,12 @@ const GameScreen: React.FC<any> = ({ route, navigation }) => {
         </TouchableOpacity>
       </View>
 
-      <ControlsHandler handleStateChange={setMoveState}>
+      <ControlsProvider handleStateChange={setMoveState}>
         <GLView
           style={{ flex: 1, backgroundColor: 'black' }}
           onContextCreate={setGl}
         />
-      </ControlsHandler>
+      </ControlsProvider>
     </LoadableScreen>
   );
 };

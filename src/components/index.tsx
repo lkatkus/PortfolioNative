@@ -1,5 +1,4 @@
-export { default as ControlsHandler } from './ControlsHandler';
-export { default as ModalContainer } from './ModalContainer';
-export { Text } from './Text';
+export { ModalContainer } from './ModalContainer';
+export { Button } from './Button';
 export { SkillzBox } from './SkillzBox';
 export { ScreenWrapper } from './ScreenWrapper';

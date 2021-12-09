@@ -23,9 +23,9 @@ const getEventConfig =
             text: 'I think that someone has told me that architects make great developers.',
             image: playerRef?.canFly ? 'roboImage' : 'playerImage',
             onClick: {
-              text: 'About',
+              text: 'About me',
               clickHandler: () => {
-                app.openTab('about');
+                app.openTab('aboutMe');
               },
             },
           }),

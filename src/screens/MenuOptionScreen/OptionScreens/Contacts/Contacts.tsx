@@ -3,7 +3,7 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import * as Linking from 'expo-linking';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { Text } from '../../../../components';
+import { Text } from '../../../../core';
 
 const ICON_LINKS = [
   {
@@ -22,7 +22,7 @@ const ICON_LINKS = [
 
 const Contacts: React.FC<any> = () => (
   <View>
-    <View>
+    <View style={styles.sectionContainer}>
       <Text.Heading2>Contacts</Text.Heading2>
       <Text.Body>
         If you want to know more about my experience, check out my Github or
@@ -45,11 +45,14 @@ const Contacts: React.FC<any> = () => (
 );
 
 const styles = StyleSheet.create({
+  sectionContainer: {
+    marginBottom: 16,
+  },
   iconsContainer: {
     flexDirection: 'row',
   },
   iconContainer: {
-    marginRight: 8,
+    marginRight: 16,
   },
 });
 

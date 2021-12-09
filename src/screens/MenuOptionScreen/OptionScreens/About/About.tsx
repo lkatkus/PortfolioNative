@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-import { Text } from '../../../components';
+import { Text } from '../../../../core';
 
 const About: React.FC<any> = () => (
   <View>
@@ -9,7 +9,8 @@ const About: React.FC<any> = () => (
       <Text.Heading2>About</Text.Heading2>
       <Text.Body>
         This is my personal world creating with JavaScript, React, WebGL and
-        other cool stuff.
+        other cool stuff. This was made as a learning project to be shared with
+        friends and colleagues.
       </Text.Body>
     </View>
 

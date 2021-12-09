@@ -8,8 +8,9 @@ import { AppNavigator } from './src/navigation';
 
 const fetchFonts = () => {
   return Font.loadAsync({
-    'press-start': require('./assets/fonts/PressStart2P-Regular.ttf'),
-    'roboto-regular': require('./assets/fonts/Roboto-Regular.ttf'),
+    'pixel-operator': require('./assets/fonts/PixelOperator.ttf'),
+    'pixel-operator-bold': require('./assets/fonts/PixelOperator-Bold.ttf'),
+    'pixel-operator-mono-bold': require('./assets/fonts/PixelOperatorMono8-Bold.ttf'),
   });
 };
 
