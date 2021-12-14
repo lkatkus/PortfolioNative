@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
@@ -15,20 +16,36 @@ const fetchFonts = () => {
 };
 
 const App = () => {
-  const [assetsLoaded, setAssetsLoaded] = React.useState(false);
+  const [appIsReady, setAppIsReady] = React.useState(false);
 
-  if (!assetsLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setAssetsLoaded(true)}
-        onError={(err) => console.log(err)}
-      />
-    );
+  React.useEffect(() => {
+    async function prepare() {
+      try {
+        // @TODO maybe add game assets fetch here?
+        await SplashScreen.preventAutoHideAsync();
+        await fetchFonts();
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setAppIsReady(true);
+      }
+    }
+
+    prepare();
+  }, []);
+
+  const onLayoutRootView = React.useCallback(async () => {
+    if (appIsReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
+
+  if (!appIsReady) {
+    return null;
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} onLayout={onLayoutRootView}>
       <StatusBar hidden={true} />
       <AppNavigator />
     </View>

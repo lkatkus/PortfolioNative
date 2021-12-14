@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
 import { GLView } from 'expo-gl';
 import * as Linking from 'expo-linking';
 import { Ionicons } from '@expo/vector-icons';
@@ -54,17 +53,10 @@ const GameScreen: React.FC<any> = ({ route, navigation }) => {
 
   return (
     <LoadableScreen isLoaded={!isLoaded}>
-      {activeEvent && <EventContainer event={activeEvent} />}
-
-      {/* @TODO move to separate component FloatingButton? */}
-      <View style={{ zIndex: 10, position: 'absolute', top: 0, left: 0 }}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate(gameMenuScreenName)}
-          style={{ padding: 10 }}
-        >
-          <Ionicons name='ios-menu' size={32} color='white' />
-        </TouchableOpacity>
-      </View>
+      <EventContainer
+        event={activeEvent}
+        handleMenuClick={() => navigation.navigate(gameMenuScreenName)}
+      />
 
       <ControlsProvider handleStateChange={setMoveState}>
         <GLView

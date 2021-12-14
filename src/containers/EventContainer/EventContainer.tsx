@@ -1,27 +1,42 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 import { Text } from '../../core';
 import { Button } from '../../components';
 
 interface EventContainerProps {
   event: any;
+  handleMenuClick: () => void;
 }
 
-const EventContainer: React.FC<EventContainerProps> = ({ event }) => {
+const EventContainer: React.FC<EventContainerProps> = ({
+  event,
+  handleMenuClick,
+}) => {
   return (
     <View style={styles.container}>
-      <View style={styles.textContainer}>
-        <Text.Body color='white'>{event.text}</Text.Body>
+      <View style={{ flexDirection: 'row' }}>
+        <TouchableOpacity onPress={handleMenuClick} style={styles.menuButton}>
+          <Ionicons name='ios-menu' size={32} color='white' />
+        </TouchableOpacity>
       </View>
-      {event.onClick && (
-        <View style={styles.buttonContainer}>
-          <Button
-            variant='secondary'
-            title={event.onClick.text}
-            onPress={event.onClick.clickHandler}
-          />
-        </View>
+
+      {event && (
+        <React.Fragment>
+          <View style={styles.textContainer}>
+            <Text.Body color='white'>{event.text}</Text.Body>
+          </View>
+          {event.onClick && (
+            <View style={styles.buttonContainer}>
+              <Button
+                variant='secondary'
+                title={event.onClick.text}
+                onPress={event.onClick.clickHandler}
+              />
+            </View>
+          )}
+        </React.Fragment>
       )}
     </View>
   );
@@ -34,19 +49,22 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     width: '100%',
-    paddingHorizontal: 24,
-    marginTop: 56,
-  },
-  textContainer: {
-    width: '100%',
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    borderColor: 'white',
-    borderWidth: 2,
     padding: 16,
   },
+  textContainer: {
+    marginTop: 16,
+    padding: 16,
+    width: '100%',
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    borderColor: 'white',
+    borderWidth: 2,
+  },
   buttonContainer: {
-    marginTop: 8,
+    marginTop: 16,
     alignItems: 'flex-end',
+  },
+  menuButton: {
+    padding: 4,
   },
 });
 

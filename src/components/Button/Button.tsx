@@ -6,8 +6,15 @@ import { Text } from '../../core';
 const VARIANTS = {
   primary: {},
   secondary: {
-    backgroundColor: 'rgba(255,255,255,0.6)',
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    borderColor: 'white',
+    borderWidth: 2,
   },
+};
+
+const TEXT_VARIANTS = {
+  primary: { color: 'black' },
+  secondary: { color: 'white' },
 };
 
 interface ButtonProps {
@@ -26,7 +33,9 @@ const Button: React.FC<ButtonProps> = ({
       onPress={onPress}
       style={[styles.buttonContainer, { ...VARIANTS[variant] }]}
     >
-      <Text.Heading2>{title}</Text.Heading2>
+      <Text.Heading2 color={TEXT_VARIANTS[variant].color}>
+        {title}
+      </Text.Heading2>
     </TouchableOpacity>
   );
 };

@@ -31,7 +31,7 @@ const ModalContainer: React.FC<ModalContainerProps> = ({
           </TouchableOpacity>
         </View>
       )}
-      <ScrollView>{children}</ScrollView>
+      <ScrollView style={{ flexGrow: 0 }}>{children}</ScrollView>
     </View>
   </View>
 );
@@ -39,11 +39,13 @@ const ModalContainer: React.FC<ModalContainerProps> = ({
 const styles = StyleSheet.create({
   modalContainer: {
     padding: 24,
-    alignItems: 'stretch',
+    alignItems: 'center',
     justifyContent: 'center',
   },
   modal: {
     maxHeight: '100%',
+    minWidth: 200,
+    maxWidth: 400,
     padding: 16,
     borderWidth: 1,
     borderColor: 'black',
