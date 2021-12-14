@@ -1,11 +1,10 @@
 import React from 'react';
 import { GLView } from 'expo-gl';
 import * as Linking from 'expo-linking';
-import { Ionicons } from '@expo/vector-icons';
 
 import {
   LoadableScreen,
-  EventContainer,
+  UiProvider,
   ControlsProvider,
 } from '../../containers';
 import { initLaikaGame } from './GameScreen.utils';
@@ -53,16 +52,13 @@ const GameScreen: React.FC<any> = ({ route, navigation }) => {
 
   return (
     <LoadableScreen isLoaded={!isLoaded}>
-      <EventContainer
+      <UiProvider
         event={activeEvent}
         handleMenuClick={() => navigation.navigate(gameMenuScreenName)}
       />
 
       <ControlsProvider handleStateChange={setMoveState}>
-        <GLView
-          style={{ flex: 1, backgroundColor: 'black' }}
-          onContextCreate={setGl}
-        />
+        <GLView style={{ flex: 1 }} onContextCreate={setGl} />
       </ControlsProvider>
     </LoadableScreen>
   );

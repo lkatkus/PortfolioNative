@@ -3,7 +3,6 @@ import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-import AppLoading from 'expo-app-loading';
 
 import { AppNavigator } from './src/navigation';
 
@@ -24,6 +23,8 @@ const App = () => {
         // @TODO maybe add game assets fetch here?
         await SplashScreen.preventAutoHideAsync();
         await fetchFonts();
+        // to prevent splash screen flashing
+        await new Promise((resolve) => setTimeout(resolve, 1000));
       } catch (e) {
         console.warn(e);
       } finally {

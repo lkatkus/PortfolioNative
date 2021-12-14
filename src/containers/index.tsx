@@ -1,3 +1,3 @@
 export { LoadableScreen } from './LoadableScreen';
-export { EventContainer } from './EventContainer';
+export { UiProvider } from './UiProvider';
 export { ControlsProvider } from './ControlsProvider';

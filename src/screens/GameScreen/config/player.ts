@@ -1,8 +1,9 @@
 export const getConfig = (playerTextureAsset: any) => ({
   name: 'player',
   movement: {
-    speedX: 0.2,
+    speedX: 0.18,
     speedY: 0.2,
+    speedFallY: 12,
   },
   texture: {
     source: playerTextureAsset,

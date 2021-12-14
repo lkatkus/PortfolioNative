@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "PortfolioNative",
-    "slug": "PortfolioNative",
+    "name": "My SuperJS Adventure",
+    "slug": "MySuperJSAdventure",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

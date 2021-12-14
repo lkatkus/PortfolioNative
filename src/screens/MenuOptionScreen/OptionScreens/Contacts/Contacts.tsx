@@ -30,7 +30,7 @@ const Contacts: React.FC<any> = () => (
       </Text.Body>
     </View>
 
-    <View style={styles.iconsContainer}>
+    <View style={[styles.sectionContainer, styles.iconsContainer]}>
       {ICON_LINKS.map(({ icon, pageUrl }, index) => (
         <TouchableOpacity
           key={index}

@@ -32,7 +32,7 @@ export const initLaikaGame = async (
 
   new LaikaGame(
     {
-      initRenderer: () => new WebGlRenderer(gl),
+      initRenderer: () => new WebGlRenderer(gl, { clearColor: [0, 0, 0, 0] }),
       events: getEventsConfig(
         {
           openTab: handleOpenTab,
