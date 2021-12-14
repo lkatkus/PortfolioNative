@@ -18,16 +18,16 @@ export const initLaikaGame = async (
   { handleGameReady, handleOpenTab, handleOpenPage, handleSetEvent }: any
 ) => {
   const levelTextureAsset = await loadAsset(
-    require('./assets/level-tilesheet.png')
+    require('../../../assets/textures/level-tilesheet.png')
   );
   const playerTextureAsset = await loadAsset(
-    require('./assets/player-spritesheet.png')
+    require('../../../assets/textures/player-spritesheet.png')
   );
   const playerTextureLeveledAsset = await loadAsset(
-    require('./assets/playerspritesheet-leveled.png')
+    require('../../../assets/textures/playerspritesheet-leveled.png')
   );
   const catTextureAsset = await loadAsset(
-    require('./assets/cat-spritesheet.png')
+    require('../../../assets/textures/cat-spritesheet.png')
   );
 
   new LaikaGame(

@@ -4,15 +4,15 @@ import { View, StyleSheet, Image } from 'react-native';
 import { Text } from '../../../../core';
 
 const IMAGES = [
-  require('./images/arch-1.jpg'),
-  require('./images/arch-2.jpg'),
-  require('./images/arch-3.jpg'),
-  require('./images/arch-4.jpg'),
-  require('./images/arch-5.jpg'),
-  require('./images/arch-6.jpg'),
-  require('./images/arch-7.jpg'),
-  require('./images/arch-8.jpg'),
-  require('./images/arch-9.jpg'),
+  require('../../../../../assets/images/arch-1.jpg'),
+  require('../../../../../assets/images/arch-2.jpg'),
+  require('../../../../../assets/images/arch-3.jpg'),
+  require('../../../../../assets/images/arch-4.jpg'),
+  require('../../../../../assets/images/arch-5.jpg'),
+  require('../../../../../assets/images/arch-6.jpg'),
+  require('../../../../../assets/images/arch-7.jpg'),
+  require('../../../../../assets/images/arch-8.jpg'),
+  require('../../../../../assets/images/arch-9.jpg'),
 ];
 
 const Other: React.FC<any> = () => (
