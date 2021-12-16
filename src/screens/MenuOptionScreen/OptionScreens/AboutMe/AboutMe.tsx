@@ -1,36 +1,45 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
-import { SkillzBox } from '../../../../components';
-import { Text } from '../../../../core';
+import { SkillzBox } from '@src/components';
+import { Text, Layout } from '@src/core';
+import { colors } from '@src/constants';
 
 const AboutMe: React.FC<any> = () => (
   <View>
-    <View style={styles.sectionContainer}>
+    <Layout.Section>
       <Text.Heading2>Laimonas Katkus</Text.Heading2>
       <Text.Body>Race - Human</Text.Body>
       <Text.Body>Class - Software developer</Text.Body>
       <Text.Body>Location - Lithuania, Vilnius</Text.Body>
       <Text.Body>Superpower - Brazilian Jiu-Jitsu blue belt</Text.Body>
-    </View>
+    </Layout.Section>
 
-    <View style={styles.sectionContainer}>
+    <Layout.Section>
       <Text.Heading2>Stats</Text.Heading2>
       <View>
-        <SkillzBox label={'HP'} labelComponent={Text.Body} color='crimson' />
+        <SkillzBox label={'HP'} labelComponent={Text.Body} color={colors.red} />
       </View>
 
       <View>
-        <SkillzBox label={'MP'} labelComponent={Text.Body} color='navy' />
+        <SkillzBox
+          label={'MP'}
+          labelComponent={Text.Body}
+          color={colors.blue}
+        />
       </View>
 
       <View>
-        <SkillzBox label={'EXP'} labelComponent={Text.Body} color='gold' />
+        <SkillzBox
+          label={'EXP'}
+          labelComponent={Text.Body}
+          color={colors.yellow}
+        />
       </View>
-    </View>
+    </Layout.Section>
 
     <View>
-      <View style={styles.subSectionContainer}>
+      <Layout.SubSection>
         <Text.Heading2>Origins</Text.Heading2>
         <Text.Body>
           Architect (building kind) and project manager by education. I have
@@ -43,19 +52,10 @@ const AboutMe: React.FC<any> = () => (
           age, the decision to move to IT, was not an easy one. Right now I am
           glad, that I have followed my gut.
         </Text.Body>
-      </View>
+      </Layout.SubSection>
       <Text.Body>To be continued...</Text.Body>
     </View>
   </View>
 );
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginBottom: 16,
-  },
-  subSectionContainer: {
-    marginBottom: 8,
-  },
-});
 
 export default AboutMe;

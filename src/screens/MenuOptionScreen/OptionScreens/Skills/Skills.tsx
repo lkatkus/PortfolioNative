@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
-import { SkillzBox } from '../../../../components';
-import { Text } from '../../../../core';
+import { SkillzBox } from '@src/components';
+import { Text, Layout } from '@src/core';
 
 const SKILLZ_LIST = ['ReactJS', 'HTML', 'JS', 'Skiing', 'NodeJS', 'GraphQL'];
 
 const Skills: React.FC<any> = () => (
   <View>
-    <View style={styles.sectionContainer}>
+    <Layout.Section>
       <Text.Heading2>Experience</Text.Heading2>
       <Text.Body>
         Up to this point I have worked on multiple large scale projects, mainly
@@ -21,15 +21,15 @@ const Skills: React.FC<any> = () => (
         now I am focused on developing web apps with React, but also trying out
         mobile development with React Native on my free time.
       </Text.Body>
-    </View>
+    </Layout.Section>
 
     <View>
-      <View style={styles.subSectionContainer}>
+      <Layout.SubSection>
         <Text.Heading2>Skills</Text.Heading2>
         {SKILLZ_LIST.map((skill) => (
           <SkillzBox key={skill} label={skill} labelComponent={Text.Body} />
         ))}
-      </View>
+      </Layout.SubSection>
 
       <Text.SubBody>
         * People seem to like skill bars. So this is just a list with randomly
@@ -38,14 +38,5 @@ const Skills: React.FC<any> = () => (
     </View>
   </View>
 );
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginBottom: 16,
-  },
-  subSectionContainer: {
-    marginBottom: 8,
-  },
-});
 
 export default Skills;

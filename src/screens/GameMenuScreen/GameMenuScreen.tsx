@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ModalContainer, Button } from '../../components';
+import { ModalContainer, Button } from '@src/components';
 
 const GameMenuScreen: React.FC<any> = ({ route, navigation }) => {
   const { menuOptionScreenName } = route.params;

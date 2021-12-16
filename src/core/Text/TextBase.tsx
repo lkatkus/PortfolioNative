@@ -1,5 +1,7 @@
 import React from 'react';
-import { Platform, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
+
+import { colors } from '@src/constants';
 
 type FontWeight =
   | 'normal'
@@ -36,6 +38,7 @@ export default (
 ): React.FC<TextProps & { children: string }> => {
   const styles = StyleSheet.create({
     textStyle: {
+      color: colors.black,
       fontSize: baseProps.fontSize,
       fontFamily: baseProps.fontFamily,
       fontWeight: baseProps.fontWeight,
@@ -45,13 +48,13 @@ export default (
     },
   });
 
-  return ({ children, color, textAlign, fontSize }) => {
+  return ({ children, color, textAlign }) => {
     return (
       <Text
         style={[
           styles.textStyle,
           {
-            color,
+            ...(color ? { color } : {}),
             textAlign,
           },
         ]}

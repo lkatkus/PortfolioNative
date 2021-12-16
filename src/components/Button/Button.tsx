@@ -1,20 +1,22 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 
-import { Text } from '../../core';
+import { Text } from '@src/core';
+import { colors, sizing } from '@src/constants';
 
-const VARIANTS = {
+const VARIANTS = StyleSheet.create({
   primary: {},
   secondary: {
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    borderColor: 'white',
+    backgroundColor: colors.blackOpaque,
     borderWidth: 2,
+    borderBottomWidth: 4,
+    borderColor: colors.white,
   },
-};
+});
 
 const TEXT_VARIANTS = {
-  primary: { color: 'black' },
-  secondary: { color: 'white' },
+  primary: { color: colors.black },
+  secondary: { color: colors.white },
 };
 
 interface ButtonProps {
@@ -31,6 +33,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <TouchableOpacity
       onPress={onPress}
+      activeOpacity={0.7}
       style={[styles.buttonContainer, { ...VARIANTS[variant] }]}
     >
       <Text.Heading2 color={TEXT_VARIANTS[variant].color}>
@@ -42,8 +45,8 @@ const Button: React.FC<ButtonProps> = ({
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    paddingVertical: 6,
-    paddingHorizontal: 12,
+    paddingVertical: sizing.s,
+    paddingHorizontal: sizing.m,
     alignItems: 'center',
     justifyContent: 'center',
   },

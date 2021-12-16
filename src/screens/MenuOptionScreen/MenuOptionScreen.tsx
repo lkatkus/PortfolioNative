@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ModalContainer } from '../../components';
+import { ModalContainer } from '@src/components';
 import { About, AboutMe, Skills, Other, Contacts } from './OptionScreens';
 
 const getOptionComponent = (type: any): React.FC<any> => {

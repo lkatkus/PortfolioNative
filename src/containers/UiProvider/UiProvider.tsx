@@ -2,8 +2,9 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { Text } from '../../core';
-import { Button } from '../../components';
+import { Text } from '@src/core';
+import { Button } from '@src/components';
+import { colors, sizing, elevation } from '@src/constants';
 
 interface EventContainerProps {
   event: any;
@@ -20,14 +21,14 @@ const UiProvider: React.FC<EventContainerProps> = ({
       <View style={styles.container}>
         <View style={{ flexDirection: 'row' }}>
           <TouchableOpacity onPress={handleMenuClick} style={styles.menuButton}>
-            <Ionicons name='ios-menu' size={32} color='white' />
+            <Ionicons name='ios-menu' size={sizing.xxl} color={colors.white} />
           </TouchableOpacity>
         </View>
 
         {event && (
           <React.Fragment>
             <View style={styles.textContainer}>
-              <Text.Body color='white'>{event.text}</Text.Body>
+              <Text.Body color={colors.white}>{event.text}</Text.Body>
             </View>
             {event.onClick && (
               <View style={styles.buttonContainer}>
@@ -48,27 +49,27 @@ const UiProvider: React.FC<EventContainerProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    zIndex: 20,
     position: 'absolute',
     top: 0,
     left: 0,
     width: '100%',
-    padding: 8,
+    padding: sizing.m,
+    zIndex: elevation.modal,
   },
   textContainer: {
-    marginTop: 8,
-    padding: 16,
-    width: '100%',
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    borderColor: 'white',
+    flex: 1,
     borderWidth: 2,
+    margin: sizing.m,
+    padding: sizing.l,
+    borderColor: colors.white,
+    backgroundColor: colors.blackOpaque,
   },
   buttonContainer: {
-    marginTop: 16,
+    margin: sizing.m,
     alignItems: 'flex-end',
   },
   menuButton: {
-    padding: 4,
+    padding: sizing.s,
   },
 });
 

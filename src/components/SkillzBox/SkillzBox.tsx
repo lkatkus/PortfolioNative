@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
+import { colors, sizing } from '@src/constants';
+
 interface SkillzBoxProps {
   color?: string;
   label?: string;
@@ -8,7 +10,7 @@ interface SkillzBoxProps {
 }
 
 const SkillzBox: React.FC<SkillzBoxProps> = ({
-  color = '#e91e63',
+  color = colors.pink,
   label,
   labelComponent: LabelComponent,
 }) => {
@@ -39,8 +41,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  bar: { height: 10, flex: 1 },
-  barRemainder: { height: 10, flex: 1, opacity: 0.3 },
+  bar: { height: sizing.m, flex: 1 },
+  barRemainder: { height: sizing.m, flex: 1, opacity: 0.3 },
 });
 
 export default SkillzBox;

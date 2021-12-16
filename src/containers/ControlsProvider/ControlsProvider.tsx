@@ -1,6 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 
+const OFFSET_BEFORE_MOVE = 20;
+
 const ControlsHandler: React.FC<any> = ({ handleStateChange, children }) => {
   const [startPos, setStartPos] = React.useState<{
     x: number;
@@ -12,6 +14,7 @@ const ControlsHandler: React.FC<any> = ({ handleStateChange, children }) => {
   );
 
   const handleMove = (diffX?: any, diffY?: any) => {
+    // @TODO update hardcoded left, right and etc. to configurable in engine
     if (diffX !== null) {
       // Moving left
       if (diffX > 0) {
@@ -50,12 +53,12 @@ const ControlsHandler: React.FC<any> = ({ handleStateChange, children }) => {
 
           // @TODO make movement buffer before move contrallabe
           if (Math.abs(diffX) > Math.abs(diffY)) {
-            if (diffX > 20 || diffX < -20) {
+            if (diffX > OFFSET_BEFORE_MOVE || diffX < -OFFSET_BEFORE_MOVE) {
               setIsMoving(true);
               handleMove(diffX);
             }
           } else {
-            if (diffY > 20 || diffY < -20) {
+            if (diffY > OFFSET_BEFORE_MOVE || diffY < -OFFSET_BEFORE_MOVE) {
               setIsMoving(true);
               handleMove(null, diffY);
             }

@@ -2,6 +2,8 @@ import React from 'react';
 import { View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import { colors, sizing, elevation } from '@src/constants';
+
 interface ModalContainerProps {
   isFullScreen?: boolean;
   withBackground?: boolean;
@@ -19,7 +21,7 @@ const ModalContainer: React.FC<ModalContainerProps> = ({
       styles.modalContainer,
       {
         flex: isFullScreen ? 1 : undefined,
-        backgroundColor: withBackground ? 'rgba(255,255,255,0.4)' : undefined,
+        backgroundColor: withBackground ? colors.whiteOpaque : undefined,
       },
     ]}
   >
@@ -28,7 +30,7 @@ const ModalContainer: React.FC<ModalContainerProps> = ({
         <View style={styles.closeButtonContainer}>
           <TouchableOpacity onPress={handleCloseModal}>
             <View style={styles.closeButton}>
-              <Ionicons name='ios-close' size={24} color='black' />
+              <Ionicons name='ios-close' size={24} color={colors.black} />
             </View>
           </TouchableOpacity>
         </View>
@@ -40,30 +42,29 @@ const ModalContainer: React.FC<ModalContainerProps> = ({
 
 const styles = StyleSheet.create({
   modalContainer: {
-    padding: 24,
+    padding: sizing.xl,
     alignItems: 'center',
     justifyContent: 'center',
   },
   modal: {
     maxHeight: '100%',
-    minWidth: 200,
     maxWidth: 400,
     borderWidth: 1,
-    borderColor: 'black',
-    backgroundColor: 'white',
-    elevation: 10,
+    elevation: elevation.modal,
+    borderColor: colors.black,
+    backgroundColor: colors.white,
   },
   closeButtonContainer: {
     alignItems: 'flex-end',
   },
   closeButton: {
-    padding: 8,
     paddingBottom: 0,
+    padding: sizing.m,
   },
   modalContentContainer: {
     flexGrow: 0,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+    paddingVertical: sizing.m,
+    paddingHorizontal: sizing.l,
   },
 });
 

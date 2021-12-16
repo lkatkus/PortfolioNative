@@ -1,7 +1,7 @@
 import React from 'react';
 import { Animated } from 'react-native';
 
-import { ScreenWrapper } from '../../components';
+import { ScreenWrapper } from '@src/components';
 import { LoadingOverlay } from './elements';
 
 interface ScreenContainerProps {

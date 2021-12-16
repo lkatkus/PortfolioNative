@@ -2,12 +2,14 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
+import { colors } from '@src/constants';
+
 const ScreenWrapper: React.FC<any> = ({ children }) => {
   return (
     <View style={styles.pageWrapper}>
       <LinearGradient
         style={styles.background}
-        colors={['rgb(100, 150, 255)', 'rgb(245, 245, 245)']}
+        colors={[colors.skyBlue, colors.almostWhite]}
       />
       {children}
     </View>

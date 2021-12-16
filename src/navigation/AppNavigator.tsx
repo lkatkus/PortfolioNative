@@ -7,18 +7,11 @@ import {
   GameScreen,
   GameMenuScreen,
   MenuOptionScreen,
-} from '../screens';
-
-export const SCREENS = {
-  MapScreen: 'MapScreen',
-  NewPlaceScreen: 'NewPlaceScreen',
-  PlaceDetailScreen: 'PlaceDetailScreen',
-  PlacesListScreen: 'PlacesListScreen',
-};
+} from '@src/screens';
 
 const Stack = createNativeStackNavigator();
 
-const AppNavigator: React.FC<any> = () => {
+const AppNavigator: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={MainMenuScreen.name}>

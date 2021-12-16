@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-import { ScreenWrapper, ModalContainer, Button } from '../../components';
-import { Text } from '../../core';
+import { ScreenWrapper, ModalContainer, Button } from '@src/components';
+import { Text } from '@src/core';
 
 const MainMenuScreen: React.FC<any> = ({ route, navigation }) => {
   const { gameScreenName, menuOptionScreenName } = route.params;

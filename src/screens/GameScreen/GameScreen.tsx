@@ -6,7 +6,7 @@ import {
   LoadableScreen,
   UiProvider,
   ControlsProvider,
-} from '../../containers';
+} from '@src/containers';
 import { initLaikaGame } from './GameScreen.utils';
 
 const GameScreen: React.FC<any> = ({ route, navigation }) => {

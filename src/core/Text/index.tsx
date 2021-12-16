@@ -21,14 +21,8 @@ export const Text = {
   }),
   Heading2: TextBase({
     fontFamily: 'pixel-operator-bold',
-    fontSize: 18,
-    lineHeight: 20,
-    uppercase: true,
-  }),
-  Heading3: TextBase({
-    fontFamily: 'pixel-operator',
-    fontSize: 18,
-    lineHeight: 20,
+    fontSize: 16,
+    lineHeight: 18,
     uppercase: true,
   }),
 };

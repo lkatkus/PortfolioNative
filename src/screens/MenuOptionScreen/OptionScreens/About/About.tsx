@@ -1,30 +1,31 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
-import { Text } from '../../../../core';
+import { Text, Layout } from '@src/core';
 
 const About: React.FC<any> = () => (
   <View>
-    <View style={styles.sectionContainer}>
+    <Layout.Section>
       <Text.Heading2>About</Text.Heading2>
       <Text.Body>
-        This is my personal world creating with JavaScript, React, WebGL and
-        other cool stuff. This was made as a learning project to be shared with
-        friends and colleagues.
+        This is my personal world created with JavaScript, React Native,
+        LaikaJS, WebGL and other cool stuff. This was made as a learning project
+        to be shared with friends and colleagues.
       </Text.Body>
-    </View>
+    </Layout.Section>
 
-    <View>
+    <Layout.Section>
       <Text.Heading2>Controls</Text.Heading2>
       <Text.Body>Press and swipe in the direction you want to move.</Text.Body>
-    </View>
+    </Layout.Section>
+
+    <Layout.Section>
+      <Text.Heading2>Stack</Text.Heading2>
+      <Text.Body>React Native</Text.Body>
+      <Text.Body>Expo</Text.Body>
+      <Text.Body>LaikaJS</Text.Body>
+    </Layout.Section>
   </View>
 );
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginBottom: 16,
-  },
-});
 
 export default About;

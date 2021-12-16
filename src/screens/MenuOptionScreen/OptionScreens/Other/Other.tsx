@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, Image } from 'react-native';
 
-import { Text } from '../../../../core';
+import { Text, Layout } from '@src/core';
 
 const IMAGES = [
   require('../../../../../assets/images/arch-1.jpg'),
@@ -17,15 +17,15 @@ const IMAGES = [
 
 const Other: React.FC<any> = () => (
   <View>
-    <View style={styles.sectionContainer}>
+    <Layout.Section>
       <Text.Heading2>Other stuff</Text.Heading2>
       <Text.Body>
         Some fancy words I know, from my previous endeavours - Autocad,
         Archicad, 3DS MAX, Archicad, Photoshop, Illustrator, Aperture, Bokeh.
       </Text.Body>
-    </View>
+    </Layout.Section>
 
-    <View>
+    <Layout.Section>
       {IMAGES.map((imageUrl, index) => (
         <Image
           key={index}
@@ -36,14 +36,8 @@ const Other: React.FC<any> = () => (
           }}
         />
       ))}
-    </View>
+    </Layout.Section>
   </View>
 );
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginBottom: 16,
-  },
-});
 
 export default Other;
