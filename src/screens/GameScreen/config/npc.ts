@@ -1,5 +1,9 @@
 // @TODO add proper configuring flow
-export const getConfig = (catTextureAsset: any, moonTextureAsset: any) => [
+export const getConfig = (
+  catTextureAsset: any,
+  moonTextureAsset: any,
+  dogTextureAsset: any
+) => [
   {
     name: 'cat',
     movement: {
@@ -19,6 +23,30 @@ export const getConfig = (catTextureAsset: any, moonTextureAsset: any) => [
     max: {
       row: 33,
       col: 24,
+    },
+  },
+  {
+    name: 'dog',
+    movement: {
+      speedX: 0.7,
+      speedY: 0.7,
+    },
+    texture: {
+      source: dogTextureAsset,
+      height: 32,
+      width: 32,
+      tileCols: 5,
+      drawOffset: 0.5,
+      drawWidthOffset: 1.5,
+      drawHeightOffset: 1.5,
+    },
+    min: {
+      row: 41,
+      col: 36,
+    },
+    max: {
+      row: 41,
+      col: 36,
     },
   },
   {

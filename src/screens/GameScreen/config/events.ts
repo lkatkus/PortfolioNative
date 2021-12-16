@@ -37,8 +37,8 @@ const getEventConfig =
         col: [35, 39],
         eventHandler: () =>
           app.setEvent({
-            text: 'You should try climbing up.',
-            image: 'workerImage',
+            text: 'You should try climbing up. Ohh... I mean - WOOF!',
+            image: 'dogImage',
           }),
         onLeave: app.clearEvent,
       },
@@ -98,7 +98,8 @@ const getEventConfig =
         id: 'moonSpeak',
         row: [0, 12],
         col: [35, 60],
-        eventHandler: () => app.setEvent({ text: 'Eyes up, Guardian!', image: 'moonImage' }),
+        eventHandler: () =>
+          app.setEvent({ text: 'Eyes up, Guardian!', image: 'moonImage' }),
         onLeave: app.clearEvent,
       },
       {

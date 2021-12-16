@@ -15,15 +15,19 @@ const About: React.FC<any> = () => (
       </Layout.SubSection>
       <Layout.SubSection>
         <Text.Body>
-          The app itself was built using React Native and game logic is handled by my
-          personal game engine - LaikaJS. Render engine is using WebGL with Expo GLView.
+          The app itself was built using React Native and game logic is handled
+          by my personal game engine - LaikaJS. Render engine is using WebGL
+          with Expo GLView. Assets were drawn using the amazing Aseprite editor.
         </Text.Body>
       </Layout.SubSection>
     </Layout.Section>
 
     <Layout.Section>
       <Text.Heading2>Controls</Text.Heading2>
-      <Text.Body>Press and swipe in the direction you want to move.</Text.Body>
+      <Text.Body>
+        Press anywhere on the screen and swipe in the direction you want to
+        move.
+      </Text.Body>
     </Layout.Section>
   </View>
 );
