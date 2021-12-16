@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ModalContainer } from '@src/components';
-import { About, AboutMe, Skills, Other, Contacts } from './OptionScreens';
+import { About, Profile, Skills, Other, Contacts } from './OptionScreens';
 
 const getOptionComponent = (type: any): React.FC<any> => {
   let OptionComponent;
@@ -11,8 +11,8 @@ const getOptionComponent = (type: any): React.FC<any> => {
     case 'about':
       OptionComponent = About;
       break;
-    case 'aboutMe':
-      OptionComponent = AboutMe;
+    case 'profile':
+      OptionComponent = Profile;
       break;
     case 'skills':
       OptionComponent = Skills;

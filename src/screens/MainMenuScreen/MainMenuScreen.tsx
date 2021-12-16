@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
 import { ScreenWrapper, ModalContainer, Button } from '@src/components';
 import { Text } from '@src/core';
@@ -15,6 +15,7 @@ const MainMenuScreen: React.FC<any> = ({ route, navigation }) => {
         <Text.Heading1 textAlign='center'>JavaScript</Text.Heading1>
         <Text.Heading1 textAlign='center'>Adventure</Text.Heading1>
       </ModalContainer>
+
       <View>
         <Button
           title='Start game'

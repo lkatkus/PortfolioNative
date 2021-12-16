@@ -5,7 +5,7 @@ import { SkillzBox } from '@src/components';
 import { Text, Layout } from '@src/core';
 import { colors } from '@src/constants';
 
-const AboutMe: React.FC<any> = () => (
+const Profile: React.FC<any> = () => (
   <View>
     <Layout.Section>
       <Text.Heading2>Laimonas Katkus</Text.Heading2>
@@ -58,4 +58,4 @@ const AboutMe: React.FC<any> = () => (
   </View>
 );
 
-export default AboutMe;
+export default Profile;

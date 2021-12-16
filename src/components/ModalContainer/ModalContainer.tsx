@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  View,
+  ScrollView,
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { colors, sizing, elevation } from '@src/constants';
@@ -35,7 +41,9 @@ const ModalContainer: React.FC<ModalContainerProps> = ({
           </TouchableOpacity>
         </View>
       )}
-      <ScrollView style={styles.modalContentContainer}>{children}</ScrollView>
+      <ScrollView style={styles.scrollContainer}>
+        <View style={styles.modalContentContainer}>{children}</View>
+      </ScrollView>
     </View>
   </View>
 );
@@ -61,8 +69,10 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
     padding: sizing.m,
   },
-  modalContentContainer: {
+  scrollContainer: {
     flexGrow: 0,
+  },
+  modalContentContainer: {
     paddingVertical: sizing.m,
     paddingHorizontal: sizing.l,
   },

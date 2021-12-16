@@ -3,33 +3,30 @@ import React from 'react';
 import { ModalContainer, Button } from '@src/components';
 
 const GameMenuScreen: React.FC<any> = ({ route, navigation }) => {
+  const { navigate } = navigation;
   const { menuOptionScreenName } = route.params;
 
   return (
     <ModalContainer handleCloseModal={() => navigation.goBack()}>
       <Button
-        onPress={() =>
-          navigation.navigate(menuOptionScreenName, { type: 'aboutMe' })
-        }
-        title='About me'
+        title='Profile'
+        onPress={() => navigate(menuOptionScreenName, { type: 'profile' })}
       />
       <Button
-        onPress={() =>
-          navigation.navigate(menuOptionScreenName, { type: 'skills' })
-        }
         title='Skills'
+        onPress={() => navigate(menuOptionScreenName, { type: 'skills' })}
       />
       <Button
-        onPress={() =>
-          navigation.navigate(menuOptionScreenName, { type: 'other' })
-        }
         title='Other'
+        onPress={() => navigate(menuOptionScreenName, { type: 'other' })}
       />
       <Button
-        onPress={() =>
-          navigation.navigate(menuOptionScreenName, { type: 'contacts' })
-        }
         title='Contacts'
+        onPress={() => navigate(menuOptionScreenName, { type: 'contacts' })}
+      />
+      <Button
+        title='About'
+        onPress={() => navigate(menuOptionScreenName, { type: 'about' })}
       />
     </ModalContainer>
   );

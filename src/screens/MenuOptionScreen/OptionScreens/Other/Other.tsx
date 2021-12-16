@@ -25,7 +25,7 @@ const Other: React.FC<any> = () => (
       </Text.Body>
     </Layout.Section>
 
-    <Layout.Section>
+    <Layout.SubSection>
       {IMAGES.map((imageUrl, index) => (
         <Image
           key={index}
@@ -36,7 +36,7 @@ const Other: React.FC<any> = () => (
           }}
         />
       ))}
-    </Layout.Section>
+    </Layout.SubSection>
   </View>
 );
 
