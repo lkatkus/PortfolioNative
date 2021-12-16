@@ -95,6 +95,13 @@ const getEventConfig =
         onLeave: app.clearEvent,
       },
       {
+        id: 'moonSpeak',
+        row: [0, 12],
+        col: [35, 60],
+        eventHandler: () => app.setEvent({ text: 'Eyes up, Guardian!', image: 'moonImage' }),
+        onLeave: app.clearEvent,
+      },
+      {
         id: 'randomJoke',
         row: [23, 24],
         col: [25, 45],
@@ -123,6 +130,17 @@ const getEventConfig =
         onLeave: app.clearEvent,
       },
       {
+        id: 'itsMeMario',
+        row: [29, 30],
+        col: [5, 10],
+        eventHandler: (playerRef: any) =>
+          app.setEvent({
+            text: 'I think, that you need a plumber for that...',
+            image: playerRef?.canFly ? 'roboImage' : 'playerImage',
+          }),
+        onLeave: app.clearEvent,
+      },
+      {
         id: 'seeHome',
         row: [18, 19],
         col: [19, 25],
@@ -133,7 +151,6 @@ const getEventConfig =
           }),
         onLeave: app.clearEvent,
       },
-      // @TODO add missing events
       {
         id: 'monolith',
         row: [5, 6],

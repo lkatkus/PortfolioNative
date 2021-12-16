@@ -29,6 +29,9 @@ export const initLaikaGame = async (
   const catTextureAsset = await loadAsset(
     require('../../../assets/textures/cat-spritesheet.png')
   );
+  const moonTextureAsset = await loadAsset(
+    require('../../../assets/textures/traveller-spritesheet.png')
+  );
 
   new LaikaGame(
     {
@@ -44,7 +47,7 @@ export const initLaikaGame = async (
         }
       ),
       player: getPlayerConfig(playerTextureAsset),
-      npc: getNpcConfig(catTextureAsset),
+      npc: getNpcConfig(catTextureAsset, moonTextureAsset),
       level: getLevelConfig(levelTextureAsset),
     },
     {
