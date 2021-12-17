@@ -1,8 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import { ScreenWrapper, ModalContainer, Button } from '@src/components';
 import { Text } from '@src/core';
+import { sizing } from '@src/constants';
+import { ScreenWrapper, ModalContainer, Button } from '@src/components';
 
 const MainMenuScreen: React.FC<any> = ({ route, navigation }) => {
   const { gameScreenName, menuOptionScreenName } = route.params;
@@ -19,6 +20,7 @@ const MainMenuScreen: React.FC<any> = ({ route, navigation }) => {
       <View>
         <Button
           title='Start game'
+          style={{ marginBottom: sizing.m }}
           onPress={() => {
             navigation.navigate(gameScreenName);
           }}

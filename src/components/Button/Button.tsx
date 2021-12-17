@@ -23,18 +23,20 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary';
   title: string;
   onPress: () => void;
+  style?: { [key: string]: any };
 }
 
 const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   title,
+  style,
   onPress,
 }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={0.7}
-      style={[styles.buttonContainer, { ...VARIANTS[variant] }]}
+      style={[styles.buttonContainer, { ...VARIANTS[variant], ...style }]}
     >
       <Text.Heading2 color={TEXT_VARIANTS[variant].color}>
         {title}
