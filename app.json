@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "My SuperJS Adventure",
-    "slug": "PortfolioNative",
     "version": "1.0.0",
+    "name": "My Super JavaScript Adventure",
+    "slug": "my-super-javascript-adventure",
+    "description": "My personal portfolio built with React Native, Expo, LaikaJS and WebGL.",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -13,14 +14,16 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "buildNumber": "1.0.0",
+      "supportsTablet": true,
+      "bundleIdentifier": "eu.katkus.MySuperJavaScriptAdventure"
     },
     "android": {
-      "package": "com.lkatkus.PortfolioNative"
+      "versionCode": 1,
+      "package": "eu.katkus.MySuperJavaScriptAdventure",
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"
