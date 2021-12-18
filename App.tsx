@@ -24,7 +24,7 @@ const App = () => {
         await SplashScreen.preventAutoHideAsync();
         await fetchFonts();
         // to prevent splash screen flashing
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 500));
       } catch (e) {
         console.warn(e);
       } finally {

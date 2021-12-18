@@ -25,7 +25,7 @@ const About: React.FC<any> = () => (
     <Layout.Section>
       <Text.Heading2>Controls</Text.Heading2>
       <Text.Body>
-        Press anywhere on the screen and swipe in the direction you want to
+        Press anywhere on the screen, swipe and hold a bit in the direction you want to
         move.
       </Text.Body>
     </Layout.Section>

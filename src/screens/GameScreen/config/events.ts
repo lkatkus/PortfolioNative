@@ -35,9 +35,11 @@ const getEventConfig =
         id: 'moveUp',
         row: [40, 41],
         col: [35, 39],
-        eventHandler: () =>
+        eventHandler: (playerRef: any) =>
           app.setEvent({
-            text: 'You should try climbing up. Ohh... I mean - WOOF!',
+            text: playerRef?.canFly
+              ? 'WOOF! WOOF! WOOF!'
+              : 'You should try climbing up. Ohh... I mean - WOOF!',
             image: 'dogImage',
           }),
         onLeave: app.clearEvent,
@@ -91,7 +93,13 @@ const getEventConfig =
         id: 'catSpeak',
         row: [32, 33],
         col: [13, 24],
-        eventHandler: () => app.setEvent({ text: 'Meow!', image: 'catImage' }),
+        eventHandler: (playerRef: any) =>
+          app.setEvent({
+            text: playerRef?.canFly
+              ? 'All your base are belong to us!'
+              : 'Meow!',
+            image: 'catImage',
+          }),
         onLeave: app.clearEvent,
       },
       {
@@ -122,6 +130,8 @@ const getEventConfig =
                 'Two windmills are standing in a field and one asks the other, “What kind of music do you like?”... The other says “I’m a big metal fan.”',
                 'My girlfriend and I often laugh about how competitive we are… But I laugh more.',
                 'My friend asked me to help him round up his 37 sheep... I said "40".',
+                "Chuck Norris doesn't nead a gun he just neads a bullet and someone to make him angry",
+                "You don't invite Chuck Norris. He invites himself.",
               ];
 
               return jokes[Math.floor(Math.random() * jokes.length)];
