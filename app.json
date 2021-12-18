@@ -1,6 +1,6 @@
 {
   "expo": {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "My Super JavaScript Adventure",
     "slug": "my-super-javascript-adventure",
     "description": "My personal portfolio built with React Native, Expo, LaikaJS and WebGL.",
@@ -12,16 +12,16 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "enabled": false
+      "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "buildNumber": "1.0.1",
+      "buildNumber": "1.0.2",
       "supportsTablet": true,
       "bundleIdentifier": "eu.katkus.MySuperJavaScriptAdventure"
     },
     "android": {
-      "versionCode": 2,
+      "versionCode": 3,
       "package": "eu.katkus.MySuperJavaScriptAdventure",
       "permissions": []
     },
