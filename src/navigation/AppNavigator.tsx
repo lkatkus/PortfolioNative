@@ -11,6 +11,13 @@ import {
 
 const Stack = createNativeStackNavigator();
 
+export type RootStackParamList = {
+  GameScreen: { gameMenuScreenName: any; menuOptionScreenName: any };
+  MainMenuScreen: { gameScreenName: any; menuOptionScreenName: any; type: any };
+  GameMenuScreen: { menuOptionScreenName: any };
+  MenuOptionScreen: undefined;
+};
+
 const AppNavigator: React.FC = () => {
   return (
     <NavigationContainer>

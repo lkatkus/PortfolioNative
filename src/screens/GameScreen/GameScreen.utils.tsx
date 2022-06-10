@@ -14,7 +14,7 @@ const loadAsset = async (img_url: string) => {
 };
 
 export const initLaikaGame = async (
-  gl: any,
+  gl: WebGLRenderingContext,
   { handleGameReady, handleOpenTab, handleOpenPage, handleSetEvent }: any
 ) => {
   const levelTextureAsset = await loadAsset(
@@ -54,10 +54,17 @@ export const initLaikaGame = async (
       level: getLevelConfig(levelTextureAsset),
     },
     {
-      onLoadGame: (game: any) => {
+      onLoadGame: (game: LaikaGame) => {
         game.startGame();
         handleGameReady(game);
       },
+      onAfterInit: (game: LaikaGame) => {
+        // game.audioPlayer.preload('main', music.MainTheme, {
+        //   loop: true,
+        //   volume: 0.4,
+        // });
+      },
+      onDraw: (game) => {},
     }
   );
 };

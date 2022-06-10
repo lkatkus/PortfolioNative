@@ -1,9 +1,12 @@
+import { Asset } from 'expo-asset';
+import { INpcConfig } from 'laikajs';
+
 // @TODO add proper configuring flow
 export const getConfig = (
-  catTextureAsset: any,
-  moonTextureAsset: any,
-  dogTextureAsset: any
-) => [
+  catTextureAsset: Asset,
+  moonTextureAsset: Asset,
+  dogTextureAsset: Asset
+): INpcConfig[] => [
   {
     name: 'cat',
     movement: {
@@ -14,15 +17,18 @@ export const getConfig = (
       source: catTextureAsset,
       height: 32,
       width: 32,
-      tileCols: 3,
+      tileCols: 8,
+      drawOffset: 1,
+      drawWidthOffset: 2,
+      drawHeightOffset: 2,
     },
     min: {
-      row: 33,
-      col: 12,
+      row: 39,
+      col: 18,
     },
     max: {
-      row: 33,
-      col: 24,
+      row: 39,
+      col: 30,
     },
   },
   {
@@ -35,18 +41,18 @@ export const getConfig = (
       source: dogTextureAsset,
       height: 32,
       width: 32,
-      tileCols: 5,
-      drawOffset: 0.5,
-      drawWidthOffset: 1.5,
-      drawHeightOffset: 1.5,
+      tileCols: 8,
+      drawOffset: 1,
+      drawWidthOffset: 2,
+      drawHeightOffset: 2,
     },
     min: {
-      row: 41,
-      col: 36,
+      row: 47,
+      col: 42,
     },
     max: {
-      row: 41,
-      col: 36,
+      row: 47,
+      col: 42,
     },
   },
   {
@@ -65,11 +71,11 @@ export const getConfig = (
       drawHeightOffset: 18,
     },
     min: {
-      row: 0,
+      row: 2,
       col: 35,
     },
     max: {
-      row: 0,
+      row: 2,
       col: 50,
     },
   },

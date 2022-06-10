@@ -1,11 +1,21 @@
 import React from 'react';
 import { View } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { Text } from '@src/core';
 import { sizing } from '@src/constants';
+import { RootStackParamList } from '@src/navigation';
 import { ScreenWrapper, ModalContainer, Button } from '@src/components';
 
-const MainMenuScreen: React.FC<any> = ({ route, navigation }) => {
+type MainMenuScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'MainMenuScreen'
+>;
+
+const MainMenuScreen: React.FC<MainMenuScreenProps> = ({
+  route,
+  navigation,
+}) => {
   const { gameScreenName, menuOptionScreenName } = route.params;
 
   return (

@@ -1,4 +1,7 @@
-export const getConfig = (playerTextureAsset: any) => ({
+import { Asset } from 'expo-asset';
+import { IPlayerConfig } from 'laikajs';
+
+export const getConfig = (playerTextureAsset: Asset): IPlayerConfig => ({
   name: 'player',
   movement: {
     speedX: 0.18,

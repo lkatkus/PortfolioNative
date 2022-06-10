@@ -1,8 +1,18 @@
 import React from 'react';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
+import { RootStackParamList } from '@src/navigation';
 import { ModalContainer, Button } from '@src/components';
 
-const GameMenuScreen: React.FC<any> = ({ route, navigation }) => {
+type GameMenuScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'GameMenuScreen'
+>;
+
+const GameMenuScreen: React.FC<GameMenuScreenProps> = ({
+  route,
+  navigation,
+}) => {
   const { navigate } = navigation;
   const { menuOptionScreenName } = route.params;
 

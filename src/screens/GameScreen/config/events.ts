@@ -1,12 +1,29 @@
+import { Asset } from 'expo-asset';
+import { Game, IEvent, Player } from 'laikajs';
+
 const getEventConfig =
-  ({ app, game }: any) =>
-  (gameObjects: any) => {
+  ({ app, game }: any): ((game: Game) => IEvent[]) =>
+  (gameApi: Game) => {
     return [
+      // @TODO
+      // {
+      //   id: 'musicPreloadSpace',
+      //   row: [23, 28],
+      //   col: [18, 22],
+      //   eventHandler: () => {
+      //     gameApi.audioPlayer.preload('space', music.SpaceTheme, {
+      //       loop: true,
+      //     });
+      //     gameApi.audioPlayer.preload('levelUp', sfx.levelUp, {
+      //       volume: 0.5,
+      //     });
+      //   },
+      // },
       {
         id: 'initialEvent',
-        row: [40, 41],
-        col: [5, 9],
-        eventHandler: (playerRef: any) => {
+        row: [46, 47],
+        col: [12, 15],
+        eventHandler: (playerRef: Player) => {
           app.setEvent({
             text: 'Whoo... What is this place?',
             image: playerRef?.canFly ? 'roboImage' : 'playerImage',
@@ -16,9 +33,9 @@ const getEventConfig =
       },
       {
         id: 'makeArchitectsGreatAgain',
-        row: [40, 41],
-        col: [14, 27],
-        eventHandler: (playerRef: any) =>
+        row: [46, 47],
+        col: [20, 30],
+        eventHandler: (playerRef: Player) =>
           app.setEvent({
             text: 'I think that someone has told me that architects make great developers.',
             image: playerRef?.canFly ? 'roboImage' : 'playerImage',
@@ -33,9 +50,9 @@ const getEventConfig =
       },
       {
         id: 'moveUp',
-        row: [40, 41],
-        col: [35, 39],
-        eventHandler: (playerRef: any) =>
+        row: [46, 47],
+        col: [42, 44],
+        eventHandler: (playerRef: Player) =>
           app.setEvent({
             text: playerRef?.canFly
               ? 'WOOF! WOOF! WOOF!'
@@ -46,9 +63,9 @@ const getEventConfig =
       },
       {
         id: 'webPortfolio',
-        row: [34, 35],
-        col: [35, 38],
-        eventHandler: (playerRef: any) =>
+        row: [40, 41],
+        col: [42, 45],
+        eventHandler: (playerRef: Player) =>
           app.setEvent({
             text: 'Hmmm... Not too bad! I think that I should come back later.',
             image: playerRef?.canFly ? 'roboImage' : 'playerImage',
@@ -61,9 +78,9 @@ const getEventConfig =
       },
       {
         id: 'gitRedirect',
-        row: [34, 35],
-        col: [40, 45],
-        eventHandler: (playerRef: any) =>
+        row: [40, 41],
+        col: [48, 50],
+        eventHandler: (playerRef: Player) =>
           app.setEvent({
             text: '"In case of fire - git add -A, git commit -m "FIRE!", git push origin HEAD --force"',
             image: playerRef?.canFly ? 'roboImage' : 'playerImage',
@@ -76,9 +93,9 @@ const getEventConfig =
       },
       {
         id: 'miscPortfolio',
-        row: [34, 35],
-        col: [47, 50],
-        eventHandler: (playerRef: any) =>
+        row: [40, 41],
+        col: [53, 57],
+        eventHandler: (playerRef: Player) =>
           app.setEvent({
             text: 'Autocad, Archicad, 3DS MAX, Photoshop, Illustrator, Nikon, Aperture, Bokeh and etc. Lots of fancy words, huh?',
             image: playerRef?.canFly ? 'roboImage' : 'playerImage',
@@ -91,9 +108,9 @@ const getEventConfig =
       },
       {
         id: 'catSpeak',
-        row: [32, 33],
-        col: [13, 24],
-        eventHandler: (playerRef: any) =>
+        row: [38, 39],
+        col: [19, 30],
+        eventHandler: (playerRef: Player) =>
           app.setEvent({
             text: playerRef?.canFly
               ? 'All your base are belong to us!'
@@ -104,17 +121,17 @@ const getEventConfig =
       },
       {
         id: 'moonSpeak',
-        row: [0, 12],
-        col: [35, 60],
+        row: [5, 15],
+        col: [45, 65],
         eventHandler: () =>
           app.setEvent({ text: 'Eyes up, Guardian!', image: 'moonImage' }),
         onLeave: app.clearEvent,
       },
       {
         id: 'randomJoke',
-        row: [23, 24],
-        col: [25, 45],
-        eventHandler: (playerRef: any) =>
+        row: [29, 30],
+        col: [28, 40],
+        eventHandler: (playerRef: Player) =>
           app.setEvent({
             text: (() => {
               const jokes = [
@@ -125,12 +142,12 @@ const getEventConfig =
                 'What do you call a cow with a twitch?... Beef jerky.',
                 'What do you call an alligator with a vest?... An investigator.',
                 'I tried to sue the airport for misplacing my luggage... I lost my case.',
-                'A girl once told me that she wanted to see my python... I only knew javascript.',
+                'A girl once told me that she wanted to see my python... I only knew JavaScript.',
                 'What do you call a dog that does magic tricks?... A labracadabrador.',
                 'Two windmills are standing in a field and one asks the other, “What kind of music do you like?”... The other says “I’m a big metal fan.”',
                 'My girlfriend and I often laugh about how competitive we are… But I laugh more.',
                 'My friend asked me to help him round up his 37 sheep... I said "40".',
-                "Chuck Norris doesn't nead a gun he just neads a bullet and someone to make him angry",
+                "Chuck Norris doesn't need a gun, he just needs a bullet and someone to make him angry.",
                 "You don't invite Chuck Norris. He invites himself.",
               ];
 
@@ -142,9 +159,9 @@ const getEventConfig =
       },
       {
         id: 'itsMeMario',
-        row: [29, 30],
-        col: [5, 10],
-        eventHandler: (playerRef: any) =>
+        row: [35, 36],
+        col: [11, 16],
+        eventHandler: (playerRef: Player) =>
           app.setEvent({
             text: 'I think, that you need a plumber for that...',
             image: playerRef?.canFly ? 'roboImage' : 'playerImage',
@@ -153,9 +170,9 @@ const getEventConfig =
       },
       {
         id: 'seeHome',
-        row: [18, 19],
-        col: [19, 25],
-        eventHandler: (playerRef: any) =>
+        row: [23, 24],
+        col: [22, 30],
+        eventHandler: (playerRef: Player) =>
           app.setEvent({
             text: 'I can see my house, from here!',
             image: playerRef?.canFly ? 'roboImage' : 'playerImage',
@@ -164,9 +181,9 @@ const getEventConfig =
       },
       {
         id: 'monolith',
-        row: [5, 6],
-        col: [10, 13],
-        eventHandler: (playerRef: any) => {
+        row: [5, 10],
+        col: [15, 18],
+        eventHandler: (playerRef: Player) => {
           if (playerRef.canFly) {
             app.setEvent({
               text: '01010100 01101000 01100001 01101110 01101011 00100000 01111001 01101111 01110101 00100000 01100110 01101111 01110010 00100000 01110110 01101001 01110011 01101001 01110100 01101001 01101110 01100111 00100000 01101101 01111001 00100000 01110111 01100101 01100010 01110011 01101001 01110100 01100101 00100001',
@@ -183,8 +200,8 @@ const getEventConfig =
               onClick: {
                 text: 'Touch the strange thing',
                 clickHandler: () => {
-                  game.levelUp(gameObjects);
-                  game.disableControls(gameObjects);
+                  game.levelUp(gameApi);
+                  game.disableControls(gameApi);
 
                   app.setEvent({
                     text: 'What is this new power, that i feel?! Virtual DOM, Hooks, Redux, GraphQL, Node!',
@@ -192,7 +209,7 @@ const getEventConfig =
                     onClick: {
                       text: 'Try out this new power!',
                       clickHandler: () => {
-                        game.enableControls(gameObjects);
+                        game.enableControls(gameApi);
 
                         app.clearEvent();
                       },
@@ -210,27 +227,34 @@ const getEventConfig =
 
 export const getConfig = (
   { openTab, openPage, setEvent }: any,
-  { playerLeveledTexture }: any
+  { playerLeveledTexture }: { playerLeveledTexture: Asset }
 ) => {
   return getEventConfig({
     game: {
-      levelUp: ({ player }: any) => {
-        player.levelUp(
+      levelUp: (game: Game) => {
+        if (
+          playerLeveledTexture.width === null ||
+          playerLeveledTexture.height === null
+        ) {
+          return;
+        }
+
+        game.player.levelUp(
           {
-            source: playerLeveledTexture,
+            src: playerLeveledTexture,
             height: playerLeveledTexture.height / 4,
             width: playerLeveledTexture.width / 4,
             tileCols: 3,
-            drawHeightOffset: 2,
-            drawWidthOffset: 1,
+            drawHeightOffset: 4,
+            drawWidthOffset: 2,
           },
           {
             tileCols: 3,
             canFly: true,
             speedXOffset: 0.12,
             speedYOffset: 0.12,
-            speedX: Math.floor(player.level.TILE_SIZE / 0.12),
-            speedY: Math.floor(player.level.TILE_SIZE / 0.12),
+            speedX: Math.floor(game.player.level.tileSize / 0.12),
+            speedY: Math.floor(game.player.level.tileSize / 0.12),
             textureWidth: playerLeveledTexture.height,
             textureHeight: playerLeveledTexture.width,
           }

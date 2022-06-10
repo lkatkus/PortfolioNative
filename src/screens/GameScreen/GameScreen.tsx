@@ -1,15 +1,15 @@
 import React from 'react';
 import { GLView } from 'expo-gl';
 import * as Linking from 'expo-linking';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import {
-  LoadableScreen,
-  UiProvider,
-  ControlsProvider,
-} from '@src/containers';
+import { LoadableScreen, UiProvider, ControlsProvider } from '@src/containers';
+import { RootStackParamList } from '@src/navigation';
 import { initLaikaGame } from './GameScreen.utils';
 
-const GameScreen: React.FC<any> = ({ route, navigation }) => {
+type GameScreenProps = NativeStackScreenProps<RootStackParamList, 'GameScreen'>;
+
+const GameScreen: React.FC<GameScreenProps> = ({ route, navigation }) => {
   const { gameMenuScreenName, menuOptionScreenName } = route.params;
 
   const [gl, setGl] = React.useState<any>(null);
