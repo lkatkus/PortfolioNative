@@ -1,6 +1,7 @@
 import { Asset } from 'expo-asset';
-import { Game as LaikaGame, WebGlRenderer } from 'laikajs';
+import { Game, WebGlRenderer, AudioPlayer } from 'laikajs';
 
+import { NativeAudioElement } from '@src/components';
 import {
   getPlayerConfig,
   getNpcConfig,
@@ -36,9 +37,14 @@ export const initLaikaGame = async (
     require('../../../assets/textures/traveller-sprite.png')
   );
 
-  new LaikaGame(
+  new Game(
     {
       initRenderer: () => new WebGlRenderer(gl, { clearColor: [0, 0, 0, 0] }),
+      initAudioPlayer: () =>
+        new AudioPlayer(NativeAudioElement, {
+          music: { on: true },
+          sfx: { on: true },
+        }),
       events: getEventsConfig(
         {
           openTab: handleOpenTab,
@@ -54,15 +60,22 @@ export const initLaikaGame = async (
       level: getLevelConfig(levelTextureAsset),
     },
     {
-      onLoadGame: (game: LaikaGame) => {
+      onLoadGame: (game: Game) => {
         game.startGame();
+        game.audioPlayer.play('main');
+
         handleGameReady(game);
       },
-      onAfterInit: (game: LaikaGame) => {
-        // game.audioPlayer.preload('main', music.MainTheme, {
-        //   loop: true,
-        //   volume: 0.4,
-        // });
+      onAfterInit: (game: Game) => {
+        game.audioPlayer.preload(
+          'main',
+          require('../../../assets/audio/music/8-Bit-Techno.mp3'),
+          {
+            loop: true,
+            // @TODO implement volume controls
+            volume: 0.4,
+          }
+        );
       },
       onDraw: (game) => {},
     }
