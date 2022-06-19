@@ -1,21 +1,22 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 
-import { Text } from '@src/core';
+import { PixelBorders, Text } from '@src/core';
 import { colors, sizing } from '@src/constants';
 
-const VARIANTS = StyleSheet.create({
-  primary: {},
-  secondary: {
-    backgroundColor: colors.blackOpaque,
-    borderWidth: 2,
-    borderBottomWidth: 4,
-    borderColor: colors.white,
+const VARIANTS = {
+  primary: {
+    body: { backgroundColor: colors.pink },
+    border: { color: colors.lightPink },
   },
-});
+  secondary: {
+    body: { backgroundColor: colors.blackOpaque },
+    border: { color: colors.white },
+  },
+};
 
 const TEXT_VARIANTS = {
-  primary: { color: colors.black },
+  primary: { color: colors.white },
   secondary: { color: colors.white },
 };
 
@@ -36,8 +37,9 @@ const Button: React.FC<ButtonProps> = ({
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={0.7}
-      style={[styles.buttonContainer, { ...VARIANTS[variant], ...style }]}
+      style={[styles.buttonContainer, { ...VARIANTS[variant].body, ...style }]}
     >
+      <PixelBorders {...VARIANTS[variant].border} />
       <Text.Heading2 color={TEXT_VARIANTS[variant].color}>
         {title}
       </Text.Heading2>
@@ -47,8 +49,8 @@ const Button: React.FC<ButtonProps> = ({
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    paddingVertical: sizing.s,
-    paddingHorizontal: sizing.m,
+    paddingVertical: sizing.m,
+    paddingHorizontal: sizing.l,
     alignItems: 'center',
     justifyContent: 'center',
   },
