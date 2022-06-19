@@ -3,7 +3,14 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { RootStackParamList } from '@src/navigation';
 import { ModalContainer } from '@src/components';
-import { About, Profile, Skills, Other, Contacts } from './OptionScreens';
+import {
+  About,
+  Profile,
+  Skills,
+  Other,
+  Contacts,
+  Options,
+} from './OptionScreens';
 
 const getOptionComponent = (type: any): React.FC<any> => {
   let OptionComponent;
@@ -24,6 +31,9 @@ const getOptionComponent = (type: any): React.FC<any> => {
       break;
     case 'contacts':
       OptionComponent = Contacts;
+      break;
+    case 'options':
+      OptionComponent = Options;
       break;
     default:
       OptionComponent = About;

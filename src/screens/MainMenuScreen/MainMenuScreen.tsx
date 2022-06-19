@@ -21,27 +21,36 @@ const MainMenuScreen: React.FC<MainMenuScreenProps> = ({
   return (
     <ScreenWrapper>
       <ModalContainer withBackground={false} isFullScreen={false}>
-        <Text.Heading1 textAlign='center'>My</Text.Heading1>
-        <Text.Heading1 textAlign='center'>Super</Text.Heading1>
-        <Text.Heading1 textAlign='center'>JavaScript</Text.Heading1>
-        <Text.Heading1 textAlign='center'>Adventure</Text.Heading1>
-      </ModalContainer>
+        <View style={{ marginVertical: sizing.xxl }}>
+          <Text.Heading1 textAlign='center'>My Super</Text.Heading1>
+          <Text.Heading1 textAlign='center'>JavaScript</Text.Heading1>
+          <Text.Heading1 textAlign='center'>Adventure</Text.Heading1>
+        </View>
 
-      <View>
-        <Button
-          title='Start game'
-          style={{ marginBottom: sizing.m }}
-          onPress={() => {
-            navigation.navigate(gameScreenName);
-          }}
-        />
-        <Button
-          title='About'
-          onPress={() => {
-            navigation.navigate(menuOptionScreenName, { type: 'about' });
-          }}
-        />
-      </View>
+        <View style={{ alignSelf: 'center' }}>
+          <Button
+            title='Start game'
+            style={{ marginBottom: sizing.l }}
+            onPress={() => {
+              navigation.navigate(gameScreenName);
+            }}
+          />
+          <Button
+            title='Options'
+            style={{ marginBottom: sizing.l }}
+            onPress={() => {
+              navigation.navigate(menuOptionScreenName, { type: 'options' });
+            }}
+          />
+          <Button
+            title='About'
+            style={{ marginBottom: sizing.l }}
+            onPress={() => {
+              navigation.navigate(menuOptionScreenName, { type: 'about' });
+            }}
+          />
+        </View>
+      </ModalContainer>
     </ScreenWrapper>
   );
 };

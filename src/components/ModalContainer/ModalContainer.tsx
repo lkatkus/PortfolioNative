@@ -1,13 +1,8 @@
 import React from 'react';
-import {
-  View,
-  ScrollView,
-  TouchableOpacity,
-  StyleSheet,
-  Text,
-} from 'react-native';
+import { View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import { PixelBorders } from '@src/core';
 import { colors, sizing, elevation } from '@src/constants';
 
 interface ModalContainerProps {
@@ -32,6 +27,7 @@ const ModalContainer: React.FC<ModalContainerProps> = ({
     ]}
   >
     <View style={styles.modal}>
+      <PixelBorders />
       {handleCloseModal && (
         <View style={styles.closeButtonContainer}>
           <TouchableOpacity onPress={handleCloseModal}>
@@ -55,18 +51,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   modal: {
+    position: 'relative',
     maxHeight: '100%',
     maxWidth: 400,
-    borderWidth: 1,
     elevation: elevation.modal,
-    borderColor: colors.black,
     backgroundColor: colors.white,
   },
   closeButtonContainer: {
     alignItems: 'flex-end',
   },
   closeButton: {
-    paddingBottom: 0,
     padding: sizing.m,
   },
   scrollContainer: {
@@ -74,7 +68,8 @@ const styles = StyleSheet.create({
   },
   modalContentContainer: {
     paddingVertical: sizing.m,
-    paddingHorizontal: sizing.l,
+    paddingHorizontal: sizing.xl,
+    minWidth:'60%',
   },
 });
 
